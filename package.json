@@ -1,0 +1,19 @@
+{
+  "name": "connectify",
+  "version": "0.9.0",
+  "description": "A new way to meet new groups of people",
+  "main": "app.js",
+  "scripts": {
+    "test": "start run"
+  },
+  "author": "MORONFOLUWA EMMANUEL AKINTOLA",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "morgan": "^1.9.1",
+    "path": "^0.12.7"
+  }
+}
