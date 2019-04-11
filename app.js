@@ -11,6 +11,11 @@ const routes = require('./routes/index');
 const app = express();
 const port = 3009;
 
+//LOG EVERY REQUEST THAT COMES IN
+app.use((req,res,next)=>{
+	console.log(`${new Date().toString()} => ${req.originalUrl}`);
+	next();
+});
 
 // view engine setup
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));

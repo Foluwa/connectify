@@ -1,14 +1,3 @@
-//USER SIGN-IN 
-exports.signin = (req,res,next) => {
-	console.log("signin");
-	 res.render('main/sign-in');
-}
-
-//USER SIGN-UP
-exports.signup = (req,res,next) => {
-	console.log("signup");
-	  res.render('main/sign-up');
-}
 
 //USER DASHBOARD
 exports.dashboard = (req,res,next) => {
@@ -18,6 +7,24 @@ exports.dashboard = (req,res,next) => {
 
 //DISPLAY CONNECTS
 exports.connects = (req,res,next) => {
-	console.log("dashboard");
+	console.log("connects");
 	 res.render('main/connects');
+}
+
+//DISPLAY ABOUT
+exports.about = (req,res,next) => {
+	console.log("about page");
+	 res.render('main/about');
+}
+
+//FORGOT PASSWORD
+exports.forgotpassword = (req,res,next) => {
+	console.log("forgot password");
+	 res.render('main/forgot_password');
+}
+
+//ERROR 404 PAGE
+exports.error_page = (req,res,next) => {
+	console.log("error 404 page");
+	 res.render('main/error');
 }

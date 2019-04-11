@@ -1,8 +1,38 @@
+REPOSITORY FOR GROUPS
+
+
+
+Group name
+url
+social media type
+group type (religious tech)
+tags
+
+
+
+
+
+
+
+
+
+
+
+
 COLLECTION OF SOCIAL MEDIA CONNECTIONS
 	*Users can subscribe to interests
 	*Social Media Authentication
 	*Materializecss
 	*PWA
+	*Add Share to whatsapp, twitter and facebook
+
+https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Add_to_home_screen
+
+https://materializecss.com/toasts.html
+
+https://codelabs.developers.google.com/codelabs/add-to-home-screen/#0
+
+
 
 Platforms
 
@@ -66,3 +96,65 @@ Events and Meetups
 Location Based (Cities,LandMarks)
 School
 Others
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________________________________________-
+
+
+'Blogging': null,
+'Gaming': null,
+'Content-Writing': null,
+'Freelancing': null,
+'Religion': null,
+'Christainity': null,
+'Islam': null,
+'Buddahism': null,
+'Hinduism': null,
+'Atheist': null,
+'Science': null,
+'DIY': null,
+'Arts': null,
+'Photography': null,
+'Musical Groups': null,
+'Life Issues': null,
+'Movie': null,
+'Travellers': null, 
+'Campers': null,
+'Hikers': null,
+'Shopping': null,
+'Fashion': null,
+'Foodies': null,
+'Addiction': null,
+'Speakers': null,
+'Fan Pages and Celebrity Pages and Accounts
+'Forums': null,
+'Skill Acquisition': null,
+'Startups': null,
+'Looking for Partners': null,
+'Love': null,
+'Relocation': null,
+'Cities': null,
+'Research': null,
+'Organizational': null,
+'Health': null,
+'Under 21': null,
+'Study': null,
+'Educational': null,
+Jobs and Opportunities': null,
+'Scholarships': null,
+'Location Based': null,
+'Cities': null,
+'LandMarks': null,
+'School': null,
+'Others': null,
