@@ -1,99 +1,220 @@
+<style type="text/css">
+  .side-bar-item {
+    margin-bottom: 30px;
+  }
+
+  .col-3 {
+    background-color: #ced0f1;
+  }
+</style>
+<div class="col-sm-12 messages" id="messages">
+
+</div>
+
 <div class="row">
   <div class="col-3">
     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Profile</a>
-      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Add Groups</a>
-      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+      <a class="nav-link active side-bar-item" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+        aria-controls="v-pills-home" aria-selected="true">Profile</a>
+      <a class="nav-link side-bar-item" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
+        aria-controls="v-pills-profile" aria-selected="false">Manage</a>
+      <a class="nav-link side-bar-item" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
+        aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+      <a class="nav-link side-bar-item" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
+        aria-controls="v-pills-settings" aria-selected="false">Settings</a>
     </div>
   </div>
   <div class="col-9">
-    <div class="tab-content" id="v-pills-tabContent">
+    <div class="tab-content container-fluid" id="v-pills-tabContent">
+      
+      <!-- MANAGE YOUR ACCOUNT PANEL -->
       <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-           <h1>NEW GROUPS</h1>
-      </div>
-      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-            <h1>ADD GROUP</h1>
-     </div>
-      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-            <h1>MESSAGES</h1>
-                            <div class="container">
-                   <div class="row">
-                      <div class="col-lg-12">
-                        <div class="table-responsive">
-                          <table cellpadding="10" cellspacing="20" >
-                            <tr>
-                              <td scope="row" style="padding-left: 90px;"><b>Job Position</b></th>
-                              <td scope="row"><b>Date</b></th>
-                            </tr>
-                          <tbody>
-                            <tr>
-                              <td> Sort By &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <select name="" id="" class="form-control">
-                                  <option value="">All</option>
-                                </select>
-                              </td>
-                              <td><input type="text" class="form-control" value="Mon, 9 April 2019"></td>
-                            </tr>
-                          </tbody>
-                          </table>
-                        </div>
-                      </div>
-                   </div>
-                 </div>
-            <div class="management table-responsive">
-                 <div class="container">
-                   <div class="row">
-                     <div class="col-lg-12">
-                       <table class="table table-hover">
-                        <tr id="no-border">
-                          <th>Advert Header</th>
-                          <th>Category</th>
-                          <th>Date Added</th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                        </tr>
-                        <tr>
-                          <td scope="col" >Lorem Ipsum</td>
-                          <td scope="col">Sunday March 11 2019</td>
-                          <td scope="col"><a href="" class="btn btn-outline-primary">VIEW</a></td>
-                          <td scope="col"><a href="" class="btn btn-primary">EDIT</a></td>
-                          <td scope="col"><a href="" class="btn btn-outline-danger">DELETE</a></td>
-                        </tr>
-                        <tr>
-                          <td scope="col" >Lorem Ipsum</td>
-                          <td scope="col">Sunday March 11 2019</td>
-                          <td scope="col"><a href="" class="btn btn-outline-primary">VIEW</a></td>
-                          <td scope="col"><a href="" class="btn btn-primary">EDIT</a></td>
-                          <td scope="col"><a href="" class="btn btn-outline-danger">DELETE</a></td>
-                        </tr>
-                        <tr>
-                          <td scope="col" >Lorem Ipsum</td>
-                          <td scope="col">Sunday March 11 2019</td>
-                          <td scope="col"><a href="" class="btn btn-outline-primary">VIEW</a></td>
-                          <td scope="col"><a href="" class="btn btn-primary">EDIT</a></td>
-                          <td scope="col"><a href="" class="btn btn-outline-danger">DELETE</a></td>
-                        </tr>
-                        <tr>
-                          <td scope="col" >Lorem Ipsum</td>
-                          <td scope="col">Sunday March 11 2019</td>
-                          <td scope="col"><a href="" class="btn btn-outline-primary">VIEW</a></td>
-                          <td scope="col"><a href="" class="btn btn-primary">EDIT</a></td>
-                          <td scope="col"><a href="" class="btn btn-outline-danger">DELETE</a></td>
-                        </tr>
-                      </thead>
-                     </table>
-                     </div>
-                   </div>
-                 </div>
-               </div>
+        <h3>Manage your account</h3>
+        <div>
+          <h6>{{ this.user }}</h6>
 
-     </div>
-      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-            <h1>SETTINGS</h1>
+        </div>
       </div>
+
+      <!-- ADD GROUP PANEL -->
+      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+        <h4 class="mb-3">Add Group</h4>
+        <div class="container-fluid">
+          <form class="submit-groups" method="POST" action="/submit-groups">
+            <div class="row">
+
+              <div class="col-md-12 mb-3">
+                <label for="firstName">Group name</label>
+                <input type="text" class="form-control" name="groupname" id="groupname" placeholder="" value=""
+                  required>
+                <div class="invalid-feedback">
+                  Valid Group name is required.
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="username">URL</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">@</span>
+                  </div>
+                  <input type="url" class="form-control" name="groupurl" id="groupurl" placeholder="Username" required>
+                  <div class="invalid-feedback" style="width: 100%;">
+                    Your username is required.
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12 mb-3">
+                <label for="address">Brief Info about your group</label>
+                <textarea type="text" name="groupinfo" class="form-control" id="groupinfo" required></textarea>
+                <div class="invalid-feedback">
+                  Please enter your shipping address.
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="country">Country</label>
+                  <select class="custom-select d-block w-100" name="grouptype" id="grouptype" required>
+                    <option value="">Choose...</option>
+                    <option>United States</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid country.
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="state">State</label>
+                  <select class="custom-select d-block w-100" name="groupplatform" id="groupplatform" required>
+                    <option value="WhatsApp">WhatsApp</option>
+                    <option>Telegram</option>
+                    <option value="Slack">Slack</option>
+                    <option>Gitter</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please provide a valid state.
+                  </div>
+                </div>
+              </div>
+              <hr class="mb-4">
+              <input type="hidden" name="_csrf" value="{{ csrfToken }}" required>
+              <input type="hidden" name="useremail" id="useremail" value={{ this.user }} required />
+              <button class="btn btn-primary btn-lg btn-block" type="submit" id="group-submit">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- MESSAGES PANEL -->
+      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="table-responsive">
+                <table cellpadding="10" cellspacing="20">
+                  <tr>
+                    <td scope="row" style="padding-left: 90px;"><b>Job Position</b></th>
+                    <td scope="row"><b>Date</b></th>
+                  </tr>
+                  <tbody>
+                    <tr>
+                      <td> Sort By &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <select name="" id="" class="form-control my-0">
+                          <option value="">All</option>
+                        </select>
+                      </td>
+                      <td><input type="text" class="form-control" value="Mon, 9 April 2019"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="management table-responsive">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <table class="table table-hover">
+                  <tr id="no-border">
+                    <th>Group Name</th>
+                    <th>Category</th>
+                    <th>Platform</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+
+                  {{# each groups }} 
+                    {{# each this }}
+                    <tr>
+                      <td scope="col">{{ this.groupname }}</td>
+                      <td scope="col">{{ this.grouptype }}</td>
+                      <td scope="col"><a href="" class="btn btn-outline-primary">{{ this.groupplatform }}</a></td>
+                      <td scope="col"><a href="" class="btn btn-primary">EDIT</a></td>
+                      <td scope="col"><a href="" class="btn btn-outline-danger" id={{_id}}>DELETE</a></td>
+                    </tr>
+                    {{/each}}
+                  {{/each}}
+
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SETING PANEL -->
+      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+        <h1>SETTINGS</h1>
+      </div>
+
     </div>
   </div>
 </div>
+</div>
 
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script>
+  $('.submit-groups').on('submit', function (e) {
+    e.preventDefault();
+    $.ajax({
+      url: "/submit-groups",
+      method: "post",
+      data: $('.submit-groups').serialize(),
+      beforeSend: function () {
+        console.log("Adding...");
+        $("#group-submit").html("Adding.....");
+      },
+      success: function (res) {
+        alert('done');
+        $("#group-submit").html("Upload");
+        $("#messges").html('<div class="alert alert-success"><p>Added Successfully</p></div>')
+      },
+      error: function (err) {
+        alert("Not Done")
+        $("#messages").html('<div class="alert alert-danger"><p>Error Uploading Product</p></div>')
+        console.log(err);
+        $("#group-submit").html("Upload");
+
+      }
+    })
+    reset();
+  })
+
+  function reset() {
+
+    $("#groupname").val("");
+    $("#groupurl").val("");
+    $("#groupinfo").val("");
+    $("#grouptype").val("");
+    $("#groupplatform").val("");
+    $("#resetContainer").innerHTML = "";
+    $("#messages").append("<p class='primary'><strong>A mail has been sent to " + "<strong></p>");
+  }
+</script>

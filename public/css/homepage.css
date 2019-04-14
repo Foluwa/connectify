@@ -33,7 +33,11 @@
 
 #pay {
   background: rgba(17, 20, 76, 0.07);
-  height: 429px;
+  height: 300px;
+}
+
+#supported-by{
+    background: rgba(17, 20, 76, 0.07);
 }
 #job_listings {
   background: url("images/bg.svg") 95% 0% no-repeat;

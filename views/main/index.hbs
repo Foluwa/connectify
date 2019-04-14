@@ -2,9 +2,8 @@
   <section id="body_top" class="container ">
     <div class="row ">
       <div class="col-md-5">
-        <p>The remote life</p>
-        <h1>Subscribe to receive remote developers job</h1>
-        <p class="text-muted ">Built for africa and for africa. Let us help you get that dream remote job you’re perfect for.</p>
+        <h1>Subscribe to receive emails about groups that matches your interest</h1>
+        <p class="text-muted ">For entrepreneurs, digital markerters influencers</p>
         <div class="card mt-5 ">
           <div class="card-body p-2 ">
             <form action=" " class="form-inline ">
@@ -32,34 +31,69 @@
   <!-- JOB LISTINGS -->
   <section id="job_listings" class="my-5 ">
     <div class="container ">
-      <h2 class="text-center mb-4">Job Postings</h2><p>
-      <form action=" " class="form-inline ">
+      <h2 class="mb-4">Trending Channels</h2>
+      <form text-center  action=" " class="form-inline ">
         <span class="font-weight-bold mr-3 ">Filter</span>
         <select name=" " id="" class="form-control w-40 ">
           <option selected>Select job role</option>
         </select>
         <select name=" " id="" class="form-control w-40 ">
-          <option selected>Select job role</option>
+          <option selected>Select group type</option>
         </select>
-        <input type="submit" name="" class="form-control">
-      </form></p>
+        <input type="submit" name="" value="Search" class="form-control">
+      </form>
       <div class="mt-4 ">
         <div class="row ">
+
+          {{# each groups }} 
+          {{# each this }}
           <div class="col-md-4 my-3 ">
             <div class="card p-3 ">
               <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
-                <img src="/images/microsoft.svg " alt=" ">
-                <span class="font-weight-bold ">Senior Backend developer</span>
-                <a href="/job_details" class="text-muted ">view &#x2192;</a>
+                <img src="/images/lyft.svg " alt=" ">
+                <span class="font-weight-bold ">{{ this.groupname }}</span>
+                  <a class="text-muted" id="btn_{{@index}}" data-toggle="modal" data-target="#myModal{{@index}}" href="/">{{ this.groupplatform }}</a>
               </div>
             </div>
           </div>
-          <div class="col-md-4 my-3 ">
+
+
+          {{!-- <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+          </button> --}}
+
+          <!-- Modal -->
+          <div class="modal fade"  id="myModal{{@index}}" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">{{ this.groupname }}</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  {{ this.groupinfo }}
+                </div>
+                <div class="modal-footer">
+                  <a  target="_blank" href={{ this.groupurl }}>
+                    <button type="button" class="btn btn-secondary">Join</button>
+                  </a>   
+                  <button type="button" class="btn btn-primary">{{ this.groupplatform }}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+         {{/each}}
+
+          {{!-- <div class="col-md-4 my-3 ">
             <div class="card p-3 ">
               <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
                 <img src="/images/microsoft.svg " alt=" ">
                 <span class="font-weight-bold ">Senior Backend developer</span>
-                <a href="/job_details" class="text-muted ">view &#x2192;</a>
+                <a href="/" class="text-muted ">view &#x2192;</a>
               </div>
             </div>
           </div>
@@ -71,7 +105,7 @@
                   <span class="text-muted ml-2 ">Facebook</span>
                 </p>
                 <span class="font-weight-bold ">Senior Backend developer</span>
-                <a href="/job_details" class="text-muted ">view &#x2192;</a>
+                <a href="/" class="text-muted ">view &#x2192;</a>
               </div>
             </div>
           </div>
@@ -81,7 +115,7 @@
               <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
                 <img src="/images/microsoft.svg " alt=" ">
                 <span class="font-weight-bold ">Senior Backend developer</span>
-                <a href="/job_details" class="text-muted ">view &#x2192;</a>
+                <a href="/" class="text-muted ">view &#x2192;</a>
               </div>
             </div>
           </div>
@@ -93,7 +127,7 @@
                   <span class="text-muted ml-2 ">lyft</span>
                 </p>
                 <span class="font-weight-bold ">Senior Backend developer</span>
-                <a href="/job_details" class="text-muted ">view &#x2192;</a>
+                <a href="/" class="text-muted ">view &#x2192;</a>
               </div>
             </div>
           </div>
@@ -102,7 +136,7 @@
               <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
                 <img src="/images/microsoft.svg " alt=" ">
                 <span class="font-weight-bold ">Senior Backend developer</span>
-                <a href="/job_details" class="text-muted ">view &#x2192;</a>
+                <a href="/" class="text-muted ">view &#x2192;</a>
               </div>
             </div>
           </div>
@@ -114,7 +148,7 @@
                   <span class="text-muted ml-2 ">Facebook</span>
                 </p>
                 <span class="font-weight-bold ">Senior Backend developer</span>
-                <a href="/job_details" class="text-muted ">view &#x2192;</a>
+                <a href="/" class="text-muted ">view &#x2192;</a>
               </div>
             </div>
           </div>
@@ -123,7 +157,7 @@
               <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
                 <img src="/images/microsoft.svg " alt=" ">
                 <span class="font-weight-bold ">Senior Backend developer</span>
-                <a href="/job_details" class="text-muted ">view &#x2192;</a>
+                <a href="/" class="text-muted ">view &#x2192;</a>
               </div>
             </div>
           </div>
@@ -132,10 +166,10 @@
               <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
                 <img src="/images/microsoft.svg " alt=" ">
                 <span class="font-weight-bold ">Senior Backend developer</span>
-                <a href="/job_details" class="text-muted ">view &#x2192;</a>
+                <a href="/" class="text-muted ">view &#x2192;</a>
               </div>
             </div>
-          </div>
+          </div> --}}
 
 
 
@@ -150,9 +184,13 @@
   </section>
 
     <!-- BRANDS -->
-  <section id="pay" class="my-5 d-flex justify-content-center align-items-center ">
+  <section id="supported-by" class="my-5 d-flex justify-content-center align-items-center ">
     <div class="d-flex align-items-center flex-column ">
-      <h2>Supported By:</h2>
-      <p class="text-muted my-3 w-75 text-center ">Secure the job faster and easier. Let an agent help you apply to get more probability of sucess</p>
+      <h4 class="text-muted">Supported By: </h4>
+    </div>
+    <div>
+
+
+      
     </div>
   </section>

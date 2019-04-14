@@ -6,17 +6,51 @@
         <span class="navbar-toggler-icon"></span>
       </button>
   
+    {{# if login }} 
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
+          <li class="nav-item  mx-2">
+            <a class="nav-link btn px-3" href="/logout" tabindex="-1" aria-disabled="true" >Log Out</a>
+          </li>
+          <li class="nav-item  mx-2">
+            <a class="nav-link btn px-3" href="/about" tabindex="-1" aria-disabled="true" >Logged In</a>
+          </li>
+          <li class="nav-item  mx-2">
+            <a class="nav-link btn px-3" href="/about" tabindex="-1" aria-disabled="true" >About</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link " href="#" data-toggle="modal" data-target="#registerModal">Register</a>
             </a>
           </li>
           <li class="nav-item  mx-2">
-            <a class="nav-link btn btn-outline-custom px-3" href="/agent_signup" tabindex="-1" aria-disabled="true" href="/agent_signup">Become Agent</a>
+            <a class="nav-link btn btn-outline-custom px-3" href="#registerModal" tabindex="-1" aria-disabled="true">Become Agent</a>
           </li>
         </ul>
       </div>
+
+    {{ else }}  
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item  mx-2">
+            <a class="nav-link btn px-3" href="/about" tabindex="-1" aria-disabled="true" >NOT Logged In</a>
+          </li>
+          <li class="nav-item  mx-2">
+            <a class="nav-link btn px-3" href="/about" tabindex="-1" aria-disabled="true" >About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#" data-toggle="modal" data-target="#registerModal">Register</a>
+            </a>
+          </li>
+          <li class="nav-item  mx-2">
+            <a class="nav-link btn btn-outline-custom px-3" href="#registerModal" tabindex="-1" aria-disabled="true">Become Agent</a>
+          </li>
+        </ul>
+      </div>
+
+    {{/if}}
+
     </nav>
     <hr class="w-100 mx-0 mt-3">
     <!-- <a class="nav-link " href="#" data-toggle="modal" data-target="#registerModal">Register</a> -->
@@ -43,58 +77,62 @@
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <!-- SIGN IN -->
-                <form action=" " class="mt-3">
+                {{#if hasErrors}}
+                <div class="alert alert-danger">
+                    {{# each messages }}
+                        <p>{{this}}</p>
+                    {{/each}}
+                </div>
+                {{/if}}
+                <form method="POST" action="/signin" class="mt-3">
                   <div class="form-group">
                     <label for="Email" class="my-0">Email</label>
-                    <input type="text" class="form-control my-0" placeholder="testrun01@gmail.com">
+                    <input type="text" name="email" class="form-control my-0" placeholder="yourname@email.com" required>
                   </div>
                   <div class="form-group">
-                    <label for="Email" class="my-0">Password</label>
-                    <input type="password" class="form-control my-0" placeholder="testrun01@gmail.com">
+                    <label for="password" class="my-0">Password</label>
+                    <input type="password" name="password" class="form-control my-0" required>
+                    <input type="hidden" name="_csrf" value="{{ csrfToken }}" required>
                   </div>
                   <button type="submit" class="btn btn-custom my-4">Sign In</button>
+                    <a href="/forgot-password" class="text-left"> forgot password?</a>
                 </form>
                 <!--//SIGN IN -->
               </div>
               <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <!-- SIGN UP -->
-                <form action=" " class="mt-3">
+                {{#if hasErrors}}
+                  <div class="alert alert-danger">
+                      {{# each messages }}
+                          <p>{{this}}</p>
+                      {{/each}}
+                  </div>
+                {{/if}}
+                <form method="POST" action="/signup" class="mt-3">
               <div class="form-group">
                 <label for="Email" class="my-0">Email</label>
-                <input type="text" class="form-control my-0" placeholder="testrun01@gmail.com">
+                <input type="text" name="email" class="form-control my-0" placeholder="yourname@email.com" required>
               </div>
               <div class="form-group">
-                <label for="Email" class="my-0">Email</label>
-                <input type="password" class="form-control my-0" placeholder="testrun01@gmail.com">
+                <label for="password" class="my-0">Password</label>
+                <input type="password" name="password" class="form-control my-0" required>
               </div>
               <div class="form-group">
-                <label for="Email" class="my-0">Email</label>
-                <input type="password" class="form-control my-0" placeholder="testrun01@gmail.com">
+                <label for="cpassword" class="my-0">Confirm Password</label>
+                <input type="password" name="cpassword" class="form-control my-0" required>
+                <input type="hidden" name="_csrf" value="{{ csrfToken }}" required>
               </div>
-<!--               <div class="form-group">
-                <label for="" class="my-0">Job role</label>
-                <select name="" id="" class="form-control my-0">
-                  <option value="">Choose a position</option>
-                </select>
-              </div> -->
-              <button type="submit" class="btn btn-custom my-4">Register</button>
+
+              <div class="form-group row">
+                <div class="c"><button type="submit" class="btn btn-custom my-4">Register</button></div>
+              </div>
+                              <a href="/forgot-password" class="text-left"> forgot password?</a>
+              
             </form>
             <!--//SIGN UP -->
               </div>
             </div>
-            <!-- <form action=" " class="mt-3">
-              <div class="form-group">
-                <label for="Email" class="my-0">Email</label>
-                <input type="text" class="form-control my-0" placeholder="testrun01@gmail.com">
-              </div>
-              <div class="form-group">
-                <label for="" class="my-0">Job role</label>
-                <select name="" id="" class="form-control my-0">
-                  <option value="">Choose a position</option>
-                </select>
-              </div>
-              <button type="submit" class="btn btn-custom my-4">Register</button>
-            </form> -->
+
           </div>
         </div>
     </div>
