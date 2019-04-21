@@ -35,7 +35,8 @@ https://codelabs.developers.google.com/codelabs/add-to-home-screen/#0
 
 
 Platforms
-
+reddit
+imgur
 Gitter chat room
 Spectrum
 WhatsApp

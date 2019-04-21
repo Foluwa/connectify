@@ -39,7 +39,7 @@ router.post('/dashboard', function(req, res, next) {
 });
 
 //DISPLAY CONNECTS
-router.get('/connects', Controller.connects, function(req, res, next) {});
+router.get('/search', Controller.search, function(req, res, next) {});
 
 //DISPLAY ABOUT
 router.get('/about', Controller.about, function(req, res, next) {});
@@ -49,6 +49,9 @@ router.get('/forgot-password', Controller.forgotpassword, function(req, res, nex
 
 //SUBMIT GROUPS
 router.post('/submit-groups', Controller.dashboardGroupSubmit, function(req, res, next) {});
+
+//SUBSCRIBE FOR NEWS LETTER
+router.post('/subscription', Controller.subscription, function(req, res, next) {});
 
 //LOG USER OUT
 router.get('/logout', isLoggedIn, function (req, res, next) {

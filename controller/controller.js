@@ -1,5 +1,6 @@
 const express = require('express');
 var Groups = require('../models/group');
+var Subscribers = require('../models/subscribers');
 
 
 //USER DASHBOARD
@@ -32,10 +33,31 @@ exports.dashboard = (req,res,next) => {
 }
 
 
-//DISPLAY CONNECTS
-exports.connects = (req,res,next) => {
-	console.log("connects page");
-	 res.render('main/connects');
+//DISPLAY SEARCH PAGE
+exports.search = (req,res,next) => {
+	console.log("search page");
+	 
+	let grouptype =  req.query.grouptype;
+	let groupplatform =  req.query.groupplatform;
+
+	Groups.find({ groupplatform })
+    .then((result)=>{
+        // res.json(result)
+        var productChunks =  [];
+        var chunkSize = 300;
+        for(var i=0; i < result.length; i += chunkSize){
+          productChunks.push(result.slice(i, i+chunkSize)); 
+        }
+        res.render('main/search',{
+					grouptype: `${grouptype}`,
+          groupplatform: `${groupplatform}`,
+          prop:  productChunks 
+        });
+    })
+    .catch(err=>{
+        res.send(err)
+    })
+	// res.render('main/search');
 }
 
 //DISPLAY ABOUT
@@ -92,4 +114,34 @@ exports.dashboardGroupSubmit = (req,res,next) => {
 
 //res.redirect('/dashboard');
 
+}
+
+//SUBSCRIBE TO NEWSLETTER
+exports.subscription = (req,res,next) => {
+	var subscriber = new Subscribers({
+		 email : req.body.email
+	});
+	Subscribers.findOne({email : req.body.email}, function(err, user){
+		if(err){
+			//IF ERROR
+			console.log('error  occured');
+		}
+		//if a user was found, that means the user's email matches the entered email
+		if (user) {
+			console.log('A user with that email has already registered.');
+			//use connect flash
+		 //err.status = 400;
+		  res.redirect('/');
+		 return next(err);
+		} else {
+				//code if no user with entered email was found
+				subscriber.save();
+				res.redirect('/');
+		}
+	})
+	console.log("Your email is " + req.body.email);
+	//CHECK IF EMAIL ALREADY EXISTS
+	
+	//subscriber.save();
+	 
 }

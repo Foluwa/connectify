@@ -7,6 +7,13 @@
     background-color: #ced0f1;
   }
 </style>
+<link rel="stylesheet" href="css/sellect.css">
+
+<!-- OPENING TAG FOR CONTAINER -->
+<div class="container">
+
+
+
 <div class="col-sm-12 messages" id="messages">
 
 </div>
@@ -33,6 +40,8 @@
         <div>
           <h6>{{ this.user }}</h6>
 
+
+
         </div>
       </div>
 
@@ -52,7 +61,7 @@
                 </div>
               </div>
 
-              <div class="mb-3">
+              <div class="col-md-12 mb-3">
                 <label for="username">URL</label>
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -66,42 +75,58 @@
               </div>
 
               <div class="col-md-12 mb-3">
-                <label for="address">Brief Info about your group</label>
+                <label for="address">Description</label>
                 <textarea type="text" name="groupinfo" class="form-control" id="groupinfo" required></textarea>
                 <div class="invalid-feedback">
                   Please enter your shipping address.
                 </div>
               </div>
 
+              <div class="col-md-12 mb-3">
               <div class="row">
                 <div class="col-md-6 mb-3">
-                  <label for="country">Country</label>
-                  <select class="custom-select d-block w-100" name="grouptype" id="grouptype" required>
+                  <label for="country">Type</label>
+                  <select class="custom-select d-block w-100" name="grouptype" id="grouptype" multiple required>
                     <option value="">Choose...</option>
-                    <option>United States</option>
+                    <option>Tech</option>
+                    <option>Religious</option>
+                    <option>Educational</option>
+                    <option>Activist</option>
+                    <option>Hacktivist</option>
                   </select>
+
+
+                  <div class="form-group">
+								  <select name="grouptype" id="grouptype" multiple></select>
+						    	</div>
+
                   <div class="invalid-feedback">
                     Please select a valid country.
                   </div>
                 </div>
 
                 <div class="col-md-6 mb-3">
-                  <label for="state">State</label>
+                  <label for="state">Social Platform</label>
                   <select class="custom-select d-block w-100" name="groupplatform" id="groupplatform" required>
-                    <option value="WhatsApp">WhatsApp</option>
-                    <option>Telegram</option>
-                    <option value="Slack">Slack</option>
-                    <option>Gitter</option>
+                    <option value="">Default</option>
                   </select>
                   <div class="invalid-feedback">
                     Please provide a valid state.
                   </div>
                 </div>
+                </div>
+
               </div>
+              </div>
+
+              <div class="col-md-6" style="text-align: center">
+                  <input type="hidden" name="_csrf" value="{{ csrfToken }}" required>
+                  <input type="hidden" name="useremail" id="useremail" value={{ this.user }} required />
+                  <button class="btn btn-primary btn-lg btn-block" style="display: inline-block" type="submit" id="group-submit">Submit</button>
+              </div>
+
+
               <hr class="mb-4">
-              <input type="hidden" name="_csrf" value="{{ csrfToken }}" required>
-              <input type="hidden" name="useremail" id="useremail" value={{ this.user }} required />
-              <button class="btn btn-primary btn-lg btn-block" type="submit" id="group-submit">Submit</button>
           </form>
         </div>
       </div>
@@ -177,6 +202,10 @@
 </div>
 
 
+<!-- CLOSING TAG FOR CONTAINER -->
+</div>
+
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
@@ -218,3 +247,69 @@
     $("#messages").append("<p class='primary'><strong>A mail has been sent to " + "<strong></p>");
   }
 </script>
+
+
+<script src="js/sellect.js"></script>
+
+<script>
+    var mySellect = sellect("#grouptype", {
+        originList: ['Choir', 'Technical Unit', 'Media and Publicity', 'Sanitation', 'Transportation', 'Prayer', 'Ushering', 'Academic',  'Drama','Bible Study','Welfare'],
+        destinationList: [],
+        onInsert: updateDemoLists,
+        onRemove: updateDemoLists
+    });
+
+    mySellect.init();
+
+    // demo code to return lists
+    /* function updateDemoLists(event, item) {
+        var selectedList = document.getElementById('selected-list');
+        var unselectedList = document.getElementById('unselected-list');
+        var selectedArr;
+        var unselectedArr;
+
+        while (selectedList.firstChild) {
+            selectedList.removeChild(selectedList.firstChild);
+        }
+
+        while (unselectedList.firstChild) {
+            unselectedList.removeChild(unselectedList.firstChild);
+        }
+
+        selectedArr = mySellect.getSelected();
+        unselectedArr = mySellect.getUnselected();
+
+        selectedArr.forEach(function (item, index, arr){
+            var span = document.createElement('span');
+            span.innerText = item;
+            selectedList.appendChild(span);
+        });
+
+        unselectedArr.forEach(function (item, index, arr){
+            var span = document.createElement('span');
+            span.innerText = item;
+            unselectedList.appendChild(span);
+        });
+    } */
+</script>
+<script>
+  
+  var select = document.getElementById("groupplatform"),
+                     arr = [
+                    "Facebook Groups","Gitter","Google Groups","imgur","Instagram","WhatsApp","Telegram",
+                    "reddit","Slack","Skype","Spectrum","Youtube Channels"
+                    ];
+             
+             for(var i = 0; i < arr.length; i++)
+             {
+                 var option = document.createElement("OPTION"),
+                     txt = document.createTextNode(arr[i]);
+                 option.appendChild(txt);
+                 option.setAttribute("value",arr[i]);
+                 select.insertBefore(option,select.lastChild);
+             }
+             
+</script>
+
+
+

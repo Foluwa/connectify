@@ -9,26 +9,60 @@
 	<div class="">
 	  <div class="row">
 	    <!-- COL -SM - 4 -->
-	    <div class="col-sm-4">
+	    <div class="col-sm-3">
 	    	<h3>Discover groups that best suites you.</h3>
-	    	<form action="javascript:void(0)">
-			  <div class="form-group">
-			    <label for="formGroupExampleInput">Name</label>
-			    <input type="text" class="form-control" id="" placeholder="">
-			  </div>
+	    	<form action="/search" method="GET">
+
 			  <div class="form-group">
 			    <label for="formGroupExampleInput2">Social Media Name</label>
 			    <input type="text" class="form-control my-0" id="tags" placeholder="">
 			  </div>
+
 			  <div class="form-group">
-			    <input type="submit" class="form-control my-0" value="Search" id="" placeholder="">
+			    <label for="formGroupExampleInput">Social Media Type</label>
+			    {{!-- <input type="text" class="form-control" id="" placeholder=""> --}}
+          <select class="form-control" name="grouptype" id="">
+            <option value="tech">tech</option>
+            <option value="religious">religious</option>
+            <option value="travel">travel</option>
+            <option value="cities">cities</option>
+          </select> 
+
+			  </div>
+			  <div class="form-group">
+			    <label for="formGroupExampleInput2">Social Media Platform</label>
+			    {{!-- <input type="text" class="form-control my-0" id="tags" placeholder=""> --}}
+          <select class="form-control" name="groupplatform" id="">
+            <option value="whatsapp">whatsapp</option>
+            <option value="telegram">telegram</option>
+            <option value="slack">slack</option>
+            <option value="discord">discord</option>
+          </select>
+			  </div>
+			  <div class="form-group">
+			    <input type="submit" class="form-control my-0" value="Search">
 			  </div>
 			</form>
 	    </div>
 	    <!-- COL -SM - 8 -->
-	    <div class="col-sm-8">
+	    <div class="col-sm-9">
 	    	<div class="row ">
 
+          <strong>
+            <h1>HIII</h1>
+{{# each prop}} 
+ {{# each this }}  
+
+{{ this.groupname }}  
+
+{{ this.groupinfo }}
+
+{{ this.grouptype }}   {{ this.groupplatform }} 
+
+ {{/each}}
+ 
+  {{/each}}
+ </strong>
 
 
           {{# each groups }} 
@@ -44,16 +78,16 @@
           </div>
           {{/each}}
          {{/each}}
-          {{!-- <div class="col-md-4 my-3 ">
+         <div class="col-md-4 my-3 ">
             <div class="card p-3 ">
               <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
                 <img src="/images/microsoft.svg " alt=" ">
-                <span class="font-weight-bold ">Senior Backend developer</span>
+                <span class="font-weight-bold ">eveloper</span>
                 <a href="/job_details" class="text-muted ">view &#x2192;</a>
               </div>
             </div>
           </div>
-          <div class="col-md-4 my-3 ">
+          {{!--  <div class="col-md-4 my-3 ">
             <div class="card p-3 ">
               <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
                 <img src="/images/microsoft.svg " alt=" ">
