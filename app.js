@@ -1,10 +1,8 @@
-const functions = require('firebase-functions');
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
-const firebase = require('firebase-admin');
 const bodyParser = require('body-parser');
 const expressHbs = require('express-handlebars');
 const session = require('express-session');
@@ -15,22 +13,18 @@ const validator = require('express-validator');
 const MongoStore = require('connect-mongo')(session);
 const router = express.Router();
 
-// const firebaseApp = firebase.initializeApp({
-//     functions:config().firebase
-// });
-
 //ROUTES
 const routes = require('./routes/index');
 
 const app = express();
-const port = 5000;
+const port = 3009;
 
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/connectify", { useNewUrlParser: true}).then(
- (res) => {
+  function(res){
    console.log("Connected to Database Successfully.");
   }
-).catch(() => {
+).catch(function(){
   console.log("Connection to Database failed. " + console.error);
 });
 require('./config/passport');
@@ -65,7 +59,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use((req, res, next) => {
+app.use(function(req, res, next) {
     res.locals.login = req.isAuthenticated();
     res.locals.session = req.session;
     next();
@@ -74,14 +68,4 @@ app.use('/', routes);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
-
-exports.app = functions.https.onRequest(app);
 module.exports = router;
-
-
