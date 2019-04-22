@@ -4,7 +4,8 @@
   "description": "A new way to meet new groups of people",
   "main": "app.js",
   "scripts": {
-    "test": "start run"
+    "test": "start run",
+    "start": "node app.js"
   },
   "author": "MORONFOLUWA EMMANUEL AKINTOLA",
   "license": "ISC",
