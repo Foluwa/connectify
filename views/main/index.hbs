@@ -1,219 +1,134 @@
-<!-- BODY TOP -->
-  <section id="body_top" class="container ">
-    <div class="row ">
-      <div class="col-md-5">
-        <h3>Subscribe to receive emails that matches your interest</h3>
-        <p class="text-muted ">For entrepreneurs, digital markerters influencers</p>
-        <div class="card mt-5 "> 
-          <div class="card-body p-2 ">
-            <form action="/subscription" method="POST" class="form-inline ">
-              <input type="hidden" name="_csrf" value="{{ csrfToken }}" required>
-              <input type="email" name="email" class="borderless " placeholder="Enter email address ">
-              <button type="submit " class="btn btn-custom ml-auto font-weight-bold ">Subscribe</button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="offset-md-1 col-md-6 d-flex justify-content-center work-img">
-        <img src="/images/illustrate4.svg" alt=" animinated image of male and female interacting " class="img-responsive">
-      </div>
-    </div>
-  </section>
-
-  <!-- PAY TO AGENT -->
-  <section id="pay" class="my-5 d-flex justify-content-center align-items-center ">
-    <div class="d-flex align-items-center flex-column ">
-      <h2>Pay an agent to apply</h2>
-      <p class="text-muted my-3 w-75 text-center ">Secure the job faster and easier. Let an agent help you apply to get more probability of sucess</p>
-      <a href=" " class="btn btn-custom px-3 ">Contact agent</a>
-    </div>
-  </section>
-
-  <!-- JOB LISTINGS -->
-  <section id="job_listings" class="my-5 ">
-    <div class="container ">
-      <h2 class="mb-4">Top Channels</h2>
-
-      <form action="/search" action="GET" class="form-inline text-center">
-        <span class="font-weight-bold mr-3">Filter Search</span>
-        <select name=" " id="" class="form-control col-sm-4 w-40 ">
-          <option selected>Group Type</option>
-          <option value="Tech">Tech</option>
-          <option value="Religious">Religious</option>
-          <option value="Educational">Educational</option>
-          <option value="United States">United States</option>
-          <option value="Jist">Jist</option>
-        </select>
-        <select name=" " id="" class="form-control col-sm-4 w-40 ">
-          <option selected>Social Media</option>
-          <option value="Whatsapp">Whatsapp</option>
-          <option value="Telegram">Telegram</option>
-          <option value="Youtube Channel">Youtube Channel</option>
-          <option value="Slack">Slack</option>
-        </select>
-        <input type="submit" name="" value="Search" class="form-control col-sm-2">
-      </form>
- 
-
-
-
-      <div class="mt-4 ">
+<style>
+  .img-brands {
+    width: 50px;
+    height: 60px;
+  }
+  </style>    
+    
+    <!-- BODY TOP -->
+      <section id="body_top" class="container ">
         <div class="row ">
-
-          {{# each groups }} 
-          {{# each this }}
-          <div class="col-md-4 my-3 ">
-            <div class="card p-3 ">
-              <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
-                <img src="/images/lyft.svg " alt=" ">
-                <span class="font-weight-bold ">{{ this.groupname }}</span>
-                  <a class="text-muted" id="btn_{{@index}}" data-toggle="modal" data-target="#myModal{{@index}}" href="/">{{ this.groupplatform }}</a>
+          <div class="col-md-5">
+            <h3>Subscribe to receive emails that matches your interest</h3>
+            <p class="text-muted ">For entrepreneurs, digital markerters influencers</p>
+            <div class="card mt-5 "> 
+              <div class="card-body p-2 ">
+                <form action="/subscription" method="POST" class="form-inline ">
+                  <input type="hidden" name="_csrf" value="{{ csrfToken }}" required>
+                  <input type="email" name="email" class="borderless " placeholder="Enter email address ">
+                  <button type="submit " class="btn btn-custom ml-auto font-weight-bold ">Subscribe</button>
+                </form>
               </div>
             </div>
           </div>
-
-
-          {{!-- <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Launch demo modal
-          </button> --}}
-
-          <!-- Modal -->
-          <div class="modal fade"  id="myModal{{@index}}" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">{{ this.groupname }}</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  {{ this.groupinfo }}
-                </div>
-                <div class="modal-footer">
-                  <a  target="_blank" href={{ this.groupurl }}>
-                    <button type="button" class="btn btn-secondary">Join</button>
-                  </a>   
-                  <button type="button" class="btn btn-primary">{{ this.groupplatform }}</button>
-                </div>
-              </div>
-            </div>
+          <div class="offset-md-1 col-md-6 d-flex justify-content-center work-img">
+            <img src="/images/illustrate4.svg" alt=" animinated image of male and female interacting " class="img-responsive">
           </div>
-          {{/each}}
-         {{/each}}
-
-          {{!-- <div class="col-md-4 my-3 ">
-            <div class="card p-3 ">
-              <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
-                <img src="/images/microsoft.svg " alt=" ">
-                <span class="font-weight-bold ">Senior Backend developer</span>
-                <a href="/" class="text-muted ">view &#x2192;</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 my-3 ">
-            <div class="card p-3 ">
-              <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
-                <p class="d-flex my-0 align-items-center ">
-                  <img src="/images/facebook.svg " alt=" " height="30 " width="30 ">
-                  <span class="text-muted ml-2 ">Facebook</span>
-                </p>
-                <span class="font-weight-bold ">Senior Backend developer</span>
-                <a href="/" class="text-muted ">view &#x2192;</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 my-3 ">
-            <div class="card p-3 ">
-              <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
-                <img src="/images/microsoft.svg " alt=" ">
-                <span class="font-weight-bold ">Senior Backend developer</span>
-                <a href="/" class="text-muted ">view &#x2192;</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 my-3 ">
-            <div class="card p-3 ">
-              <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
-                <p class="d-flex my-0 align-items-center">
-                  <img src="/images/lyft.svg " alt=" " height="30 " width="30 ">
-                  <span class="text-muted ml-2 ">lyft</span>
-                </p>
-                <span class="font-weight-bold ">Senior Backend developer</span>
-                <a href="/" class="text-muted ">view &#x2192;</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 my-3 ">
-            <div class="card p-3 ">
-              <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
-                <img src="/images/microsoft.svg " alt=" ">
-                <span class="font-weight-bold ">Senior Backend developer</span>
-                <a href="/" class="text-muted ">view &#x2192;</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 my-3 ">
-            <div class="card p-3 ">
-              <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
-                <p class="d-flex my-0 align-items-center ">
-                  <img src="/images/facebook.svg " alt=" " height="30 " width="30 ">
-                  <span class="text-muted ml-2 ">Facebook</span>
-                </p>
-                <span class="font-weight-bold ">Senior Backend developer</span>
-                <a href="/" class="text-muted ">view &#x2192;</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 my-3 ">
-            <div class="card p-3 ">
-              <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
-                <img src="/images/microsoft.svg " alt=" ">
-                <span class="font-weight-bold ">Senior Backend developer</span>
-                <a href="/" class="text-muted ">view &#x2192;</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 my-3 ">
-            <div class="card p-3 ">
-              <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
-                <img src="/images/microsoft.svg " alt=" ">
-                <span class="font-weight-bold ">Senior Backend developer</span>
-                <a href="/" class="text-muted ">view &#x2192;</a>
-              </div>
-            </div>
-          </div> --}}
-
-
-
         </div>
+      </section>
 
-        <p class=" d-flex justify-content-center mt-4 ">
-          <a class="mr-4 ">load more listings</a>
-          <img src="/images/arrowdown.svg " alt=" ">
-        </p>
+      <!-- PAY TO AGENT -->
+      <section id="pay" class="my-5 d-flex justify-content-center align-items-center ">
+        <div class="d-flex align-items-center flex-column ">
+          <h2>Pay an agent to apply</h2>
+          <p class="text-muted my-3 w-75 text-center ">Secure the job faster and easier. Let an agent help you apply to get more probability of sucess</p>
+          <a href=" " class="btn btn-custom px-3 ">Contact agent</a>
+        </div>
+      </section>
+
+          <!-- JOB LISTINGS -->
+          <section id="job_listings" class="my-5 ">
+            <div class="container ">
+              <h2 class="mb-4">Top Channels</h2>
+
+              <form action="/search" action="GET" class="form-inline text-center">
+                <span class="font-weight-bold mr-3">Filter Search</span>
+                  <input type="search" class="form-control my-0 col-sm-4 w-40 " name="grouptype" id="grouptype" list="grouptypelist" placeholder="Platform type">
+                  <datalist id="grouptypelist">
+                    <option value="Religion" />
+                    <option value="Tech" />
+                    <option value="Educational" />
+                    <option value="Cities" />
+                    <option value="Developer Community" />
+                    <option value="Relationship Groups" />
+                  </datalist> 
+
+                  <input type="search" class="form-control my-0" name="groupplatform" id="tags" list="groupplatformlist" placeholder="Platform type">
+                  <datalist id="groupplatformlist">
+                    <option value="Whatsapp" />
+                    <option value="Telegram" />
+                    <option value="Slack" />
+                    <option value="Discord" />
+                    <option value="Spectrum" />
+                    <option value="Facebook Groups" />
+                    <option value="Twitter" />
+                    <option value="Youtube Channels" />
+                </datalist>
+                <input type="submit" name="" value="Search" class="form-control col-sm-2">
+              </form>
+
+          <div class="mt-4 ">
+            <div class="row ">
+              {{# each groups }} 
+              {{# each this }}
+              <div class="col-md-4 my-3 ">
+                <div class="card p-3 ">
+                  <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
+                    <img src="/images/lyft.svg " alt=" ">
+                    <span class="font-weight-bold ">{{ this.groupname }}</span>
+                      <a class="text-muted" id="btn_{{@index}}" data-toggle="modal" data-target="#myModal{{@index}}" href="/">{{ this.groupplatform }}</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Modal -->
+              <div class="modal fade"  id="myModal{{@index}}" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">{{ this.groupname }}</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      {{ this.groupinfo }}
+                    </div>
+                    <div class="modal-footer">
+                      <a  target="_blank" href={{ this.groupurl }}>
+                        <button type="button" class="btn btn-secondary">Join</button>
+                      </a>   
+                      <button type="button" class="btn btn-primary">{{ this.groupplatform }}</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {{/each}}
+            {{/each}}
+            </div>
+
+            <p class=" d-flex justify-content-center mt-4 ">
+              <a class="mr-4 ">load more listings</a>
+              <img src="/images/arrowdown.svg " alt=" ">
+            </p>
+                          
+            <div class="col-sm-12">
+              <a href="/popular-searches/Gitter"><img src="images/brands/gitter.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
+              <a href="/popular-searches/Facebook"><img src="images/brands/facebook.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
+              <a href="/popular-searches/Slack"><img src="images/brands/slack.svg" class="img-responsive img-rounded mr-3 img-brands"  alt="" /></a>
+              <a href="/popular-searches/Whatsapp"><img src="images/brands/whatsapp.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
+              <a href="/popular-searches/telegram"><img src="images/brands/telegram.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
 
 
-      <div class="col-sm-12">
-        <a href="/">hii</a><a href="/">hii</a><a href="/">hii</a><a href="/">hii</a><a href="/">hii</a>
-      </div>
-
-
-
-      </div>
-    </div>
-  </section>
-
-    <!-- BRANDS -->
-  <section id="supported-by" class="my-5 d-flex justify-content-center align-items-center ">
-    <div class="d-flex align-items-center flex-column ">
-      <h4 class="text-muted">Supported By: </h4>
-    </div>
-    <div>
-
-
-      
-    </div>
-  </section>
+        <!-- BRANDS -->
+      <section id="supported-by" class="my-5 d-flex justify-content-center align-items-center ">
+        <div class="d-flex align-items-center flex-column ">
+          <h4 class="text-muted">Supported By: </h4>
+        </div>
+      </section>

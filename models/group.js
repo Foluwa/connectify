@@ -6,7 +6,7 @@ var userSchema = new Schema({
    groupname: {type: String, required: true},
    groupurl : {type: String, required: true},
    groupinfo: {type: String, required: true},
-   grouptype : {type: String, required: true},
+   grouptype : [ String ],
    groupplatform: {type: String, required: true}
 
 });

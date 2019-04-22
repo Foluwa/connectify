@@ -60,6 +60,41 @@ exports.search = (req,res,next) => {
 
 }
 
+//DISPLAY POPULAR SEARCHES
+exports.popular = (req,res,next) => {
+	console.log(req.params.id);
+	var noMatch = null;
+		if(req.params.id) {
+				//const regex = new RegExp(escapeRegex(req.params.id), 'gi');  //search
+				let regex = req.params.id;   //search
+				console.log(regex);
+				// Get all campgrounds from DB
+				Groups.find({groupplatform: regex}, function(err, allCampgrounds){
+					if(err){
+							console.log(err);
+					} else {
+							if(allCampgrounds.length < 1) {
+									noMatch = "No campgrounds match that query, please try again.";
+							}
+							console.log(allCampgrounds);
+							res.render("main/search",{campgrounds:allCampgrounds, noMatch: noMatch});
+					}
+				});
+		} else {
+				// Get all campgrounds from DB
+				Groups.find({}, function(err, allCampgrounds){
+					if(err){
+							console.log(err);
+					} else {
+						console.log(allCampgrounds);
+							res.render("main/search",{campgrounds:allCampgrounds, noMatch: noMatch});
+					}
+				});
+		}
+
+	
+}
+
 //DISPLAY ABOUT
 exports.about = (req,res,next) => {
 	console.log("about page");
@@ -92,27 +127,40 @@ exports.dashboardGroupSubmit = (req,res,next) => {
 					groupurl : req.body.groupurl,
 					groupinfo: req.body.groupinfo,
 					grouptype : req.body.grouptype,
-				groupplatform: req.body.groupplatform,
-				useremail:req.body.useremail
+					groupplatform: req.body.groupplatform,
+					useremail:req.body.useremail
 		});
 		console.log(group);
 
-		group.save()
-		.then(data => {
-			console.log('Saving to database');
-			//res.send(data);
-			console.log('Product Created successfully');
-			}).catch(err => {
-			res.status(500).send({
-			message: err.message
-		});
-		})
-		.catch((error) => {
-			console.log(error);
-		});
+		Groups.findOne({groupurl : req.body.groupurl}, function(err, user){
+			if(err){
+				//IF ERROR
+				console.log('error  occured');
+			}
+			//if a user was found, that means the user's email matches the entered email
+			if (user) {
+				console.log('That address has already been registered.');
+				//SEND HTTP CODE FOR NOT DONE
+				res.send('That address has already been registered.');
 
-	  //res.redirect('/dashboard');
-
+			}
+			else{
+				group.save()
+				.then(data => {
+					console.log('Saving to database');
+					//res.send(data);
+					console.log('Product Created successfully');
+					}).catch(err => {
+					res.status(500).send({
+					message: err.message
+				});
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+	
+	}
+});
 }
 
 //SUBSCRIBE TO NEWSLETTER
@@ -137,7 +185,7 @@ exports.subscription = (req,res,next) => {
 					subscriber.save();
 					res.redirect('/');
 			}
-		})
+		});
 		console.log("Your email is " + req.body.email);
 		//CHECK IF EMAIL ALREADY EXISTS
 		

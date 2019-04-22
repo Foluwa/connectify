@@ -41,6 +41,10 @@ router.post('/dashboard', function(req, res, next) {
 //DISPLAY CONNECTS
 router.get('/search', Controller.search, function(req, res, next) {});
 
+//POPULAR SEARCHES
+router.get('/popular-searches/:id', Controller.popular, function(req, res, next) {});
+
+
 //DISPLAY ABOUT
 router.get('/about', Controller.about, function(req, res, next) {});
 
@@ -57,7 +61,7 @@ router.post('/subscription', Controller.subscription, function(req, res, next) {
 router.put("/edit/:id",Controller.edit, function(req, res){
 
 });
-
+ 
 // DELETE GROUPS
 router.get("/delete/:id",Controller.delete, function(req, res){
    
