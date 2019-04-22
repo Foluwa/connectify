@@ -175,9 +175,9 @@
                     <tr>
                       <td scope="col">{{ this.groupname }}</td>
                       <td scope="col">{{ this.grouptype }}</td>
-                      <td scope="col"><a href="" class="btn btn-outline-primary">{{ this.groupplatform }}</a></td>
-                      <td scope="col"><a href="" class="btn btn-primary">EDIT</a></td>
-                      <td scope="col"><a href="" class="btn btn-outline-danger" id={{_id}}>DELETE</a></td>
+                      <td scope="col"><a href="{{this.groupurl}}" class="btn btn-outline-primary">{{ this.groupplatform }}</a></td>
+                      <td scope="col"><a href="/edit/{{this._id}}" class="btn btn-primary">EDIT</a></td>
+                      <td scope="col"><a href="/delete/{{this._id}}"  onclick="return confirm('Are you sure to delete this record ?');" class="btn btn-outline-danger" id="{{this._id}}">DELETE</a></td>
                     </tr>
                     {{/each}}
                   {{/each}}

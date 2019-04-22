@@ -1,0 +1,17 @@
+/* Styling For JOBS_DETAILS */
+
+@import url("homepage.css");
+@import url("sign_manage.css");
+@import url("manage_jobs.css");
+@import url("dashboard.css");
+@import url("sign_manage.css");
+@import url("creat-job-post.css");
+@import url("edit-job-post.css");
+
+body {
+  margin: 0;
+  color: #11144c;
+  font-family: "Work Sans", sans-serif, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}

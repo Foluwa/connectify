@@ -1,0 +1,103 @@
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<!--     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>   
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
+
+  <section id="body_top" class="container-fluid">
+      <div class="">
+        <div class="row">
+          <!-- COL -SM - 4 -->
+          <div class="col-sm-3">
+            <h3>Discover groups that best suites you.</h3>
+            <form action="" method="GET">
+
+            <div class="form-group">
+              <label for="formGroupExampleInput2">Social Media Name</label>
+              <input type="text" name="groupname" class="form-control my-0" id="tags" placeholder="Group Name">
+            </div>
+
+            <div class="form-group">
+              <label for="formGroupExampleInput">Social Media Type</label>
+              <input type="text" class="form-control" name="grouptype" id="">       
+            </div>
+
+            <div class="form-group">
+              <label for="formGroupExampleInput2">Social Media Platform</label>
+              {{!-- <input type="text" class="form-control my-0" name="groupplatform" id="tags" placeholder=""> --}}
+              <input type="search" class="form-control my-0" name="groupplatform" id="tags" list="languages" placeholder="Platform type">
+              <datalist id="languages">
+                <option value="Whatsapp" />
+                <option value="Telegram" />
+                <option value="Slack" />
+                <option value="Discord" />
+                <option value="Spectrum" />
+                <option value="Facebook Groups" />
+                <option value="Twitter" />
+                <option value="Youtube Channels" />
+              </datalist>
+            </div>
+            <div class="form-group">
+              <input type="submit" class="form-control my-0" value="Search">
+            </div>
+          </form>
+          </div>
+
+          <!-- COL -SM - 8 -->
+          <div class="col-sm-9">
+            <div class="row ">
+              {{# each campgrounds }} 
+              {{# each this }}
+              <div class="col-md-4 my-3 ">
+                <div class="card p-3 ">
+                  <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
+                    <img src="/images/lyft.svg " alt=" ">
+                    <span class="font-weight-bold ">{{ this.groupname }}</span>{{ this.useremail }}  
+                      {{ this.groupinfo }}
+                    <a href="/" class="text-muted "> <a class="text-muted" href="/">{{ this.groupplatform }}</a></a>
+                  </div>
+                </div>
+              </div>
+              {{/each}}
+            {{/each}}
+            </div>
+          </div>
+    </section>
+
+
+  <script type="text/javascript">
+  	$(function() {
+        var tagsList = [ "CSS", "JavaScript", "HTML", "HTML5", "jQuery", "AngularJS", "Express", "PHP", "Python", "Node.js", "MySQL", "MongoDB" ];
+
+        var split = function( val ) {
+            return val.split( "," );
+        };
+
+        var extractLast = function( term ) {
+            return split( term ).pop();
+        };
+
+        $( "#tags" ).on( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB && $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        }).autocomplete({
+            source: function( request, response ) {
+                response( $.ui.autocomplete.filter(
+                    tagsList, extractLast( request.term ) ) );
+            },
+            focus: function() {
+                return false;
+            },
+            select: function( event, ui ) {
+                var terms = split( this.value );
+                terms.pop();
+                terms.push( ui.item.value );
+                terms.push( "" );
+                this.value = terms.join( "," );
+                return false;
+            }
+        });
+    });
+  </script>

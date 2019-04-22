@@ -9,7 +9,9 @@ const Controller = require('../controller/controller.js');
 var Groups = require('../models/group');
 
 /* GET HOME PAGE. */
-router.get('/', function (req, res, next) {
+router.get('/', (req, res, next) => {
+    //CHCHE FROM SERVER
+        res.set('Cache-Control', 'public, max-age= 3000, s-maxage=6000');
         var successMsg = req.flash('success')[0];
 
         Groups.find(function (err, docs) {
@@ -30,42 +32,52 @@ router.get('/', function (req, res, next) {
 });
 
 //PAGE TO GET DASHBOARD
-router.get('/dashboard', isLoggedIn, Controller.dashboard, function(req, res, next) {});
+router.get('/dashboard', isLoggedIn, Controller.dashboard, (req, res, next) => {});
 
 //PAGE TO POST DASHBOARD
-router.post('/dashboard', function(req, res, next) {
+router.post('/dashboard', (req, res, next) => {
     res.render('main/dashboard',{user: req.user.email,csrfToken: req.csrfToken(),name:name 
     });
 });
 
 //DISPLAY CONNECTS
-router.get('/search', Controller.search, function(req, res, next) {});
+router.get('/search', Controller.search, (req, res, next) => {});
 
 //DISPLAY ABOUT
-router.get('/about', Controller.about, function(req, res, next) {});
+router.get('/about', Controller.about, (req, res, next) => {});
 
 //DISPLAY ABOUT
-router.get('/forgot-password', Controller.forgotpassword, function(req, res, next) {});
+router.get('/forgot-password', Controller.forgotpassword, (req, res, next) => {});
 
 //SUBMIT GROUPS
-router.post('/submit-groups', Controller.dashboardGroupSubmit, function(req, res, next) {});
+router.post('/submit-groups', Controller.dashboardGroupSubmit, (req, res, next) => {});
 
 //SUBSCRIBE FOR NEWS LETTER
-router.post('/subscription', Controller.subscription, function(req, res, next) {});
+router.post('/subscription', Controller.subscription, (req, res, next) => {});
+
+// UPDATE GROUPS
+router.put("/edit/:id",Controller.edit, (req, res) => {
+
+});
+
+// DELETE GROUPS
+router.get("/delete/:id",Controller.delete, (req, res) => {
+   
+});
 
 //LOG USER OUT
-router.get('/logout', isLoggedIn, function (req, res, next) {
+router.get('/logout', isLoggedIn, (req, res, next) => {
     req.logout();
     res.redirect('/');
 });
 
 //NOT LOGGED IN
-router.use('/', notLoggedIn, function (req, res, next) {
+router.use('/', notLoggedIn, (req, res, next) => {
     next();
 });
 
 //DISPLAY SIGN UP
-router.get('/signup', function (req, res, next) {
+router.get('/signup', (req, res, next) => {
     var messages = req.flash('error');
         res.render('main/index', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
 });
@@ -74,7 +86,7 @@ router.get('/signup', function (req, res, next) {
 router.post('/signup', passport.authenticate('local.signup', {
     failureRedirect: '/signup',
     failureFlash: true
-    }), function (req, res, next) {
+    }), (req, res, next) => {
         //
     console.log("Your email is "+req.body.email);
     if (req.session.oldUrl) {
@@ -87,7 +99,7 @@ router.post('/signup', passport.authenticate('local.signup', {
 });
 
 //GET REQUEST TO SIGN IN
-router.get('/signin', function (req, res, next) {
+router.get('/signin', (req, res, next) => {
     var messages = req.flash('error');
         res.render('main/dashboard', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
 });
@@ -96,7 +108,7 @@ router.get('/signin', function (req, res, next) {
 router.post('/signin', passport.authenticate('local.signin', {
     failureRedirect: '/signin',
     failureFlash: true
-}), function (req, res, next) {
+}), (req, res, next) => {
     console.log("Your email is "+req.body.email);
     if (req.session.oldUrl) {
         var oldUrl = req.session.oldUrl;
@@ -110,7 +122,7 @@ router.post('/signin', passport.authenticate('local.signin', {
 
 
 //ERROR PAGE
-router.get('*', Controller.error_page, function(req, res, next) {});
+router.get('*', Controller.error_page, (req, res, next) => {});
 
 module.exports = router;
 
