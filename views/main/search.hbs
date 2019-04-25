@@ -47,7 +47,7 @@
               </datalist>
             </div>
             <div class="form-group">
-              <input type="submit" class="form-control my-0" value="Search">
+              <button type="submit" name="" class="form-control my-0">Search <i class="fas fa-search"></i></button>
             </div>
           </form>
           </div>
@@ -57,16 +57,48 @@
             <div class="row ">
               {{# each campgrounds }} 
               {{# each this }}
-              <div class="col-md-4 my-3 ">
+                            <div class="col-md-4 my-3 ">
                 <div class="card p-3 ">
                   <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
-                    <img src="/images/lyft.svg " alt=" ">
-                    <span class="font-weight-bold ">{{ this.groupname }}</span>{{ this.useremail }}  
-                      {{ this.groupinfo }}
-                    <a href="/" class="text-muted "> <a class="text-muted" href="/">{{ this.groupplatform }}</a></a>
+                    {{!-- <img src="/images/lyft.svg " alt=" "> --}}
+                    <img src="/images/brands/{{this.groupplatform}}.svg " alt=" " width="50px" height="50px">
+                    <span class="font-weight-bold ">{{ this.groupname }}</span>
+                      <a class="text-muted" id="btn_{{@index}}" data-toggle="modal" data-target="#myModal{{@index}}" href="/"><i class="fas fa-bars"></i></a>
                   </div>
                 </div>
               </div>
+
+              <!-- Modal -->
+              <div class="modal fade"  id="myModal{{@index}}" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">{{ this.groupname }}</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      {{ this.groupinfo }}
+                    </div>
+                    <div class="modal-footer">
+                      <a  target="_blank" href={{ this.groupurl }}>
+                        <button type="button" class="btn btn-secondary">Join</button>
+                      </a>   
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {{!-- <div class="col-md-4 my-3 ">
+                <div class="card p-3 ">
+                  <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
+                    <img src="/images/brands/{{this.groupplatform}}.svg" alt=" " width="50px" height="50px">
+                    <span class="font-weight-bold ">{{ this.groupname }}</span><br>
+                     <p>{{ this.groupinfo }}</p> 
+                    <a href="/" class="text-muted ">I</a>
+                  </div>
+                </div>
+              </div> --}}
               {{/each}}
             {{/each}}
             </div>

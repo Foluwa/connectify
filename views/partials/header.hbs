@@ -1,48 +1,77 @@
-  <section id="navbar" class="container-fluid py-2">
-    <nav class="navbar navbar-expand-lg navbar-light navbar-fixed">
-      <a class="navbar-brand font-weight-bolder" href="/">Connectify</a>
-      {{!-- <img src="images/logo.png" width="60px" height="60px" > --}}
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-       aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-    {{# if login }} 
+<style>
+  /*.modal #job-details p {
+  font-size: 14px;
+  margin: 3px 0px;
+}
+.modal #job-details a {
+  width: 40%;
+}
+@media (max-width: 576px) {
+  #job_listings select {
+    width: 70%;
+  }
+}*/
+</style>  
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item  mx-2">
-            <a class="nav-link btn px-3" href="/logout" tabindex="-1" aria-disabled="true" >Log Out</a>
-          </li>
-          <li class="nav-item  mx-2">
-            <a class="nav-link btn px-3" href="/search" tabindex="-1" aria-disabled="true" >Search</a>
-          </li>
-          <li class="nav-item  mx-2">
-            <a class="nav-link btn px-3" href="/dashboard" tabindex="-1" aria-disabled="true" >Dashboard</a>
-          </li>
-        </ul>
-      </div>
 
-    {{ else }}  
+            <!--Navbar -->
+            <nav class="mb-4 navbar navbar-expand-lg navbar-dark cyan">
+                <a class="navbar-brand font-bold" href="#">Connectify</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+                      {{# if login }} 
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout" tabindex="-1" aria-disabled="true"><i class="fa fa-gear"></i> Log Out <i class="fas fa-sign-out-alt"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/search" tabindex="-1" aria-disabled="true"><i class="fa fa-gear"></i> Search <i class="fas fa-search"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard" tabindex="-1" aria-disabled="true"><i class="fa fa-gear"></i> >Dashboard</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Profile </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
+                                <a class="dropdown-item" href="#">My account</a>
+                                <a class="dropdown-item" href="#">Log out</a>
+                            </div>
+                        </li>
+                    </ul>
+                        {{ else }}  
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link " href="#" data-toggle="modal" data-target="#registerModal">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn px-3" href="/about" tabindex="-1" aria-disabled="true" >About</a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link btn btn-outline-custom px-3" href="#" data-toggle="modal" data-target="#registerModal" tabindex="-1" aria-disabled="true">Get Started</a>
-          </li>
-        </ul>
-      </div>
-
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link"href="/about" tabindex="-1" aria-disabled="true" ><i class="fa fa-gear"></i> About</a>       
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"href="#" data-toggle="modal" data-target="#registerModal" tabindex="-1" aria-disabled="true"><i class="fa fa-gear"></i> Get Started</a>       
+                        </li>
+                    </ul>
+                    
     {{/if}}
+                </div>
+            </nav>
+            <!--/.Navbar -->
 
-    </nav>
-    <hr class="w-100 mx-0 mt-3">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- <a class="nav-link " href="#" data-toggle="modal" data-target="#registerModal">Register</a> -->
 
     <!--MODAL BOX -->
@@ -116,17 +145,10 @@
               <div class="form-group row">
                 <div class="c"><button type="submit" class="btn btn-custom my-4">Register</button></div>
               </div>
-                              <a href="/forgot-password" class="text-left"> forgot password?</a>
               
             </form>
             <!--//SIGN UP -->
               </div>
             </div>
 
-          </div>
-        </div>
-    </div>
-
-  </section>
-
-
+          </div>      </div>  </div> </div>

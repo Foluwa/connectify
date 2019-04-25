@@ -15,12 +15,12 @@ const router = express.Router();
 //ROUTES
 const routes = require('./routes/index');
 const app = express();
-const port = 3009;
+const port =process.env.PORT || 3009;
 
 mongoose.Promise = global.Promise;
 //mongodb://foluwa:foluwa2018@ds151814.mlab.com:51814/connectify
 //"mongodb://localhost/connectify
-mongoose.connect("mongodb://foluwa:foluwa2018@ds151814.mlab.com:51814/connectify", { useNewUrlParser: true}).then(
+mongoose.connect("mongodb://localhost/connectify", { useNewUrlParser: true}).then(
   function(res){
    console.log("Connected to Database Successfully.");
   }
@@ -31,10 +31,10 @@ require('./config/passport');
 
 
 //LOG EVERY REQUEST THAT COMES IN
-app.use((req,res,next)=>{
-	console.log(`${new Date().toString()} => ${req.originalUrl}`);
-	next();
-});
+// app.use((req,res,next)=>{
+// 	console.log(`${new Date().toString()} => ${req.originalUrl}`);
+// 	next();
+// });
 
 // view engine setup
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));

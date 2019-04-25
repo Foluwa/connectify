@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 var passport = require('passport');
+
+
+const hbs = require('hbs');
+
 var csrf = require('csurf');
 var csrfProtection = csrf();
 router.use(csrfProtection);
@@ -9,6 +13,7 @@ const Controller = require('../controller/controller.js');
 var Groups = require('../models/group');
 
 /* GET HOME PAGE. */
+
 router.get('/', function (req, res, next) {
         var successMsg = req.flash('success')[0];
 
@@ -28,6 +33,32 @@ router.get('/', function (req, res, next) {
         });
     });
 });
+
+
+
+
+/*
+router.get('/', function (req, res, next) {
+        var successMsg = req.flash('success')[0];
+
+        Groups.find(function (err, docs) {
+        var productChunks = [];
+        var chunkSize = 300;
+        for (var i = 0; i < docs.length; i += chunkSize) {
+            productChunks.push(docs.slice(i, i + chunkSize));
+        }
+        res.render('main/index',{
+        title: 'Homepage | Connectify',
+         groups:productChunks,
+         user: req.user,
+         csrfToken: req.csrfToken(),
+         successMsg: successMsg, 
+         noMessages: !successMsg 
+        });
+    });
+});
+
+*/
 
 //PAGE TO GET DASHBOARD
 router.get('/dashboard', isLoggedIn, Controller.dashboard, function(req, res, next) {});

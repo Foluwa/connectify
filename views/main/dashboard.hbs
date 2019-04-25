@@ -10,13 +10,9 @@
 <link rel="stylesheet" href="css/sellect.css">
 
 <!-- OPENING TAG FOR CONTAINER -->
-<div class="container">
+<div class="container-fluid">
 
 
-
-<div class="col-sm-12 messages" id="messages">
-
-</div>
 
 <div class="row">
   <div class="col-3">
@@ -24,11 +20,9 @@
       <a class="nav-link active side-bar-item" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
         aria-controls="v-pills-home" aria-selected="true">Profile</a>
       <a class="nav-link side-bar-item" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
-        aria-controls="v-pills-profile" aria-selected="false">Manage</a>
+        aria-controls="v-pills-profile" aria-selected="false">New</a>
       <a class="nav-link side-bar-item" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
-        aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-      <a class="nav-link side-bar-item" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
-        aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+        aria-controls="v-pills-messages" aria-selected="false">Existing</a>
     </div>
   </div>
   <div class="col-9">
@@ -39,9 +33,6 @@
         <h3>Manage your account</h3>
         <div>
           <h6>{{ this.user }}</h6>
-
-
-
         </div>
       </div>
 
@@ -95,11 +86,6 @@
                     <option>Hacktivist</option>
                   </select>
 
-
-                  <div class="form-group">
-								  <select name="grouptype" id="grouptype" multiple></select>
-						    	</div>
-
                   <div class="invalid-feedback">
                     Please select a valid country.
                   </div>
@@ -133,30 +119,6 @@
 
       <!-- MESSAGES PANEL -->
       <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="table-responsive">
-                <table cellpadding="10" cellspacing="20">
-                  <tr>
-                    <td scope="row" style="padding-left: 90px;"><b>Job Position</b></th>
-                    <td scope="row"><b>Date</b></th>
-                  </tr>
-                  <tbody>
-                    <tr>
-                      <td> Sort By &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <select name="" id="" class="form-control my-0">
-                          <option value="">All</option>
-                        </select>
-                      </td>
-                      <td><input type="text" class="form-control" value="Mon, 9 April 2019"></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="management table-responsive">
           <div class="container">
             <div class="row">
@@ -176,8 +138,8 @@
                       <td scope="col">{{ this.groupname }}</td>
                       <td scope="col">{{ this.grouptype }}</td>
                       <td scope="col"><a href="{{this.groupurl}}" class="btn btn-outline-primary">{{ this.groupplatform }}</a></td>
-                      <td scope="col"><a href="/edit/{{this._id}}" class="btn btn-primary">EDIT</a></td>
-                      <td scope="col"><a href="/delete/{{this._id}}"  onclick="return confirm('Are you sure to delete this record ?');" class="btn btn-outline-danger" id="{{this._id}}">DELETE</a></td>
+                      {{!-- <td scope="col"><a href="/edit/{{this._id}}" class="btn btn-primary">EDIT</a></td> --}}
+                      <td scope="col"><a href="/delete/{{this._id}}"  onclick="return confirm('Are you sure to delete this record ?');" class="btn btn-outline-danger" id="{{this._id}}">DELETE <i class="fas fa-trash-alt"></i></a></td>
                     </tr>
                     {{/each}}
                   {{/each}}
@@ -189,11 +151,6 @@
           </div>
         </div>
 
-      </div>
-
-      <!-- SETING PANEL -->
-      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-        <h1>SETTINGS</h1>
       </div>
 
     </div>

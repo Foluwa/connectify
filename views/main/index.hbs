@@ -3,6 +3,16 @@
     width: 50px;
     height: 60px;
   }
+  
+    @media (max-width: 425px) {
+    .illustrate{
+      display: none;
+    }
+    .col-md-5{
+      background-image: url('/images/illustrate1.svg');
+      max-width: 100%;
+    }
+  }
   </style>    
     
     <!-- BODY TOP -->
@@ -16,13 +26,13 @@
                 <form action="/subscription" method="POST" class="form-inline">
                   <input type="hidden" name="_csrf" value="{{ csrfToken }}" required>
                   <input type="email" name="email" class="border form-control" placeholder="Enter email address">
-                  <button type="submit" class="btn btn-custom ml-auto font-weight-bold">Subscribe</button>
+                  <button type="submit" class="btn btn-custom ml-auto font-weight-bold">Subscribe<i class="far fa-paper-plane"></i></button>
                 </form>
               </div>
             </div>
           </div>
           <div class="offset-md-1 col-md-6 d-flex justify-content-center work-img">
-            <img src="/images/illustrate4.svg" alt=" animinated image of male and female interacting" class="img-responsive" max-width="50%">
+            <img src="/images/illustrate4.svg" alt=" animinated image of male and female interacting" class="img-responsive illustrate" max-width="50%">
           </div>
         </div>
       </section>
@@ -31,8 +41,8 @@
       <section id="pay" class="container my-5 d-flex justify-content-center align-items-center ">
         <div class="d-flex align-items-center flex-column ">
           <h2>Repository for groups and channels.</h2>
-          <p class="text-muted my-3 w-75 text-center ">Find conversations that interest you faster with. Over 10000 channels are listed.</p>
-          <a href=" " class="btn btn-custom px-3 ">Join Now</a>
+          <p class="text-muted my-3 w-75 text-center ">Find conversations that interest you. With thousands of exciting channels listed.</p>
+          <a href="/search" class="btn btn-custom px-3 ">Join Now</a>
         </div>
       </section>
 
@@ -53,7 +63,7 @@
                     <option value="Relationship Groups" />
                   </datalist> 
 
-                  <input type="search" class="form-control my-0" name="groupplatform" id="tags" list="groupplatformlist" placeholder="Platform type">
+                  <input type="search" class="form-control my-0 col-sm-4 w-40" name="groupplatform" id="tags" list="groupplatformlist" placeholder="Platform type">
                   <datalist id="groupplatformlist">
                     <option value="Whatsapp" />
                     <option value="Telegram" />
@@ -64,7 +74,8 @@
                     <option value="Twitter" />
                     <option value="Youtube Channels" />
                 </datalist>
-                <input type="submit" name="" value="Search" class="form-control col-sm-2">
+                <button type="submit" name="" class="form-control col-sm-2">Search <i class="fas fa-search"></i></button>
+
               </form>
 
           <div class="mt-4 ">
@@ -74,9 +85,10 @@
               <div class="col-md-4 my-3 ">
                 <div class="card p-3 ">
                   <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
-                    <img src="/images/lyft.svg " alt=" ">
+                    {{!-- <img src="/images/lyft.svg " alt=" "> --}}
+                    <img src="/images/brands/{{this.groupplatform}}.svg " alt=" " width="50px" height="50px">
                     <span class="font-weight-bold ">{{ this.groupname }}</span>
-                      <a class="text-muted" id="btn_{{@index}}" data-toggle="modal" data-target="#myModal{{@index}}" href="/">{{ this.groupplatform }}</a>
+                      <a class="text-muted" id="btn_{{@index}}" data-toggle="modal" data-target="#myModal{{@index}}" href="/"><i class="fas fa-bars"></i></a>
                   </div>
                 </div>
               </div>
@@ -98,7 +110,6 @@
                       <a  target="_blank" href={{ this.groupurl }}>
                         <button type="button" class="btn btn-secondary">Join</button>
                       </a>   
-                      <button type="button" class="btn btn-primary">{{ this.groupplatform }}</button>
                     </div>
                   </div>
                 </div>
@@ -108,27 +119,52 @@
             </div>
 
             <p class=" d-flex justify-content-center mt-4 ">
-              <a class="mr-4 ">load more listings</a>
-              <img src="/images/arrowdown.svg " alt=" ">
+              <a class="mr-4 ">Load More <i class="fas fa-chevron-circle-down"></i></a>
             </p>
+
+{{!-- <div class="pagination pagination-centered">
+  <ul>
+    {{#paginate pagination  limit="6" type="first"}}
+      <li {{#if disabled}}class="disabled"{{/if}}><a href="?p={{n}}">First</a></li>
+    {{/paginate}}
+    {{#paginate pagination type="previous"}}
+      <li {{#if disabled}}class="disabled"{{/if}}><a href="?p={{n}}">Prev</a></li>
+    {{/paginate}}
+    {{#paginate pagination type="middle" limit="7"}}
+      <li {{#if active}}class="active"{{/if}}><a href="?p={{n}}">{{n}}</a></li>
+    {{/paginate}}
+    {{#paginate pagination type="next"}}
+      <li {{#if disabled}}class="disabled"{{/if}}><a href="?p={{n}}">Next</a></li>
+    {{/paginate}}
+    {{#paginate pagination type="last"}}
+      <li {{#if disabled}}class="disabled"{{/if}}><a href="?p={{n}}">Last</a></li>
+    {{/paginate}}
+  </ul>
+</div> --}}
+
+
                           
-            <div class="col-sm-12">
+            <div class="col-sm-12 text-center">
+              <h4>Most Popular Searches</h4>
               <a href="/popular-searches/Gitter"><img src="images/brands/gitter.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
               <a href="/popular-searches/Facebook"><img src="images/brands/facebook.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
               <a href="/popular-searches/Slack"><img src="images/brands/slack.svg" class="img-responsive img-rounded mr-3 img-brands"  alt="" /></a>
               <a href="/popular-searches/Whatsapp"><img src="images/brands/whatsapp.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
-              <a href="/popular-searches/telegram"><img src="images/brands/telegram.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
-
+              <a href="/popular-searches/Telegram"><img src="images/brands/telegram.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
+              <a href="/popular-searches/Imgur"><img src="images/brands/imgur.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
+              <a href="/popular-searches/Nairland"><img src="images/brands/nairaland.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
+              <a href="/popular-searches/facebook-messenger"><img src="images/brands/facebook-messenger.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
             </div>
-
           </div>
         </div>
       </section>
 
 
         <!-- BRANDS -->
-      <section id="supported-by" class="my-5 d-flex justify-content-center align-items-center ">
+      {{!-- <section id="supported-by" class="my-5 d-flex justify-content-center align-items-center ">
         <div class="d-flex align-items-center flex-column ">
           <h4 class="text-muted">Supported By: </h4>
         </div>
-      </section>
+      </section> --}}
+
+
