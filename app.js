@@ -19,7 +19,7 @@ const port =process.env.PORT || 3009;
 
 mongoose.Promise = global.Promise;
 //mongodb://foluwa:foluwa2018@ds151814.mlab.com:51814/connectify
-//"mongodb://localhost/connectify
+//mongodb://localhost/connectify
 mongoose.connect("mongodb://foluwa:foluwa2018@ds151814.mlab.com:51814/connectify", { useNewUrlParser: true}).then(
   function(res){
    console.log("Connected to Database Successfully.");

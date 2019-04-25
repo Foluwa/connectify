@@ -30,18 +30,10 @@
                             <a class="nav-link" href="/search" tabindex="-1" aria-disabled="true"><i class="fa fa-gear"></i> Search <i class="fas fa-search"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard" tabindex="-1" aria-disabled="true"><i class="fa fa-gear"></i> >Dashboard</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Profile </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                                <a class="dropdown-item" href="#">My account</a>
-                                <a class="dropdown-item" href="#">Log out</a>
-                            </div>
+                            <a class="nav-link" href="/dashboard" tabindex="-1" aria-disabled="true"><i class="fa fa-gear"></i> Dashboard</a>
                         </li>
                     </ul>
                         {{ else }}  
-
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link"href="/about" tabindex="-1" aria-disabled="true" ><i class="fa fa-gear"></i> About</a>       
@@ -50,8 +42,7 @@
                             <a class="nav-link"href="#" data-toggle="modal" data-target="#registerModal" tabindex="-1" aria-disabled="true"><i class="fa fa-gear"></i> Get Started</a>       
                         </li>
                     </ul>
-                    
-    {{/if}}
+                        {{/if}}
                 </div>
             </nav>
             <!--/.Navbar -->
@@ -106,7 +97,7 @@
                 <form method="POST" action="/signin" class="mt-3">
                   <div class="form-group">
                     <label for="Email" class="my-0">Email</label>
-                    <input type="text" name="email" class="form-control my-0" placeholder="yourname@email.com" required>
+                    <input type="email" name="email" class="form-control my-0" placeholder="yourname@email.com" required>
                   </div>
                   <div class="form-group">
                     <label for="password" class="my-0">Password</label>

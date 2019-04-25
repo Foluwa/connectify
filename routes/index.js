@@ -117,7 +117,7 @@ router.get('/signup', function (req, res, next) {
 
 //DISPLAY SIGNUP
 router.post('/signup', passport.authenticate('local.signup', {
-    failureRedirect: '/signup',
+    failureRedirect: '/', // /signup
     failureFlash: true
     }), function (req, res, next) {
         //
@@ -139,7 +139,7 @@ router.get('/signin', function (req, res, next) {
 
 //POST TO SIGNIN
 router.post('/signin', passport.authenticate('local.signin', {
-    failureRedirect: '/signin',
+    failureRedirect: '/', // /signin
     failureFlash: true
 }), function (req, res, next) {
     console.log("Your email is "+req.body.email);
