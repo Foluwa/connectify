@@ -1,19 +1,44 @@
 const express = require('express');
 const router = express.Router();
 var passport = require('passport');
-
-
-const hbs = require('hbs');
-
 var csrf = require('csurf');
 var csrfProtection = csrf();
-router.use(csrfProtection);
+router.use(csrfProtection); 
 
 const Controller = require('../controller/controller.js');
 var Groups = require('../models/group');
 
 /* GET HOME PAGE. */
 
+// router.get('/', function (req, res, next) { // :page
+//         var successMsg = req.flash('success')[0];
+
+
+//         var perPage = 10;
+//         var page = req.params.page || 1
+    
+//         Groups
+//             .find({})
+//             .skip((perPage * page) - perPage)
+//             .limit(perPage)
+//             .exec(function(err, products) {
+//                 Groups.count().exec(function(err, count) {
+//                     if (err) return next(err)
+//                     res.render('main/index', {
+//                         user: req.user,
+//                         csrfToken: req.csrfToken(),
+//                         successMsg: successMsg, 
+//                         noMessages: !successMsg ,
+//                         products: products,
+//                         current: page,
+//                         pages: Math.ceil(count / perPage)
+//                     });
+//                 });
+//             });
+//         });
+
+
+
 router.get('/', function (req, res, next) {
         var successMsg = req.flash('success')[0];
 
@@ -35,30 +60,6 @@ router.get('/', function (req, res, next) {
 });
 
 
-
-
-/*
-router.get('/', function (req, res, next) {
-        var successMsg = req.flash('success')[0];
-
-        Groups.find(function (err, docs) {
-        var productChunks = [];
-        var chunkSize = 300;
-        for (var i = 0; i < docs.length; i += chunkSize) {
-            productChunks.push(docs.slice(i, i + chunkSize));
-        }
-        res.render('main/index',{
-        title: 'Homepage | Connectify',
-         groups:productChunks,
-         user: req.user,
-         csrfToken: req.csrfToken(),
-         successMsg: successMsg, 
-         noMessages: !successMsg 
-        });
-    });
-});
-
-*/
 
 //PAGE TO GET DASHBOARD
 router.get('/dashboard', isLoggedIn, Controller.dashboard, function(req, res, next) {});
@@ -94,9 +95,7 @@ router.put("/edit/:id",Controller.edit, function(req, res){
 });
  
 // DELETE GROUPS
-router.get("/delete/:id",Controller.delete, function(req, res){
-   
-});
+router.get("/delete/:id",Controller.delete, function(req, res){});
 
 //LOG USER OUT
 router.get('/logout', isLoggedIn, function (req, res, next) {
@@ -105,9 +104,7 @@ router.get('/logout', isLoggedIn, function (req, res, next) {
 });
 
 //NOT LOGGED IN
-router.use('/', notLoggedIn, function (req, res, next) {
-    next();
-});
+router.use('/', notLoggedIn, function (req, res, next) { next();});
 
 //DISPLAY SIGN UP
 router.get('/signup', function (req, res, next) {

@@ -17,7 +17,7 @@
     
     <!-- BODY TOP -->
       <section id="body_top" class="container">
-        <div class="row" style="background-image: url(/images/illustrate4.svg);background-repeat: no-repeat;">
+        <div class="row">
           <div class="col-md-5">
             <h3>Subscribe to receive emails that matches your interest</h3>
             <p class="text-muted">For entrepreneurs, digital markerters influencers</p>
@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="offset-md-1 col-md-6 d-flex justify-content-center work-img">
-            <!-- <img src="/images/illustrate2.svg" alt=" animinated image of male and female interacting" class="img-responsive illustrate" max-width="50%"> -->
+            <img src="/images/illustrate4.svg" alt=" animinated image of male and female interacting" class="img-responsive illustrate" max-width="50%">
           </div>
         </div>
       </section>
@@ -55,9 +55,12 @@
                 <span class="font-weight-bold mr-3">Filter Search</span>
                   <input type="search" class="form-control my-0 col-sm-4 w-40 " name="grouptype" id="grouptype" list="grouptypelist" placeholder="Platform type">
                   <datalist id="grouptypelist">
-                    <option value="Religion" /><option value="Tech" />
-                    <option value="Educational" /><option value="Cities" />
-                    <option value="Developer Community" /><option value="Relationship Groups" />
+                    <option value="Religion" />
+                    <option value="Tech" />
+                    <option value="Educational" />
+                    <option value="Cities" />
+                    <option value="Developer Community" />
+                    <option value="Relationship Groups" />
                   </datalist> 
 
                   <input type="search" class="form-control my-0 col-sm-4 w-40" name="groupplatform" id="tags" list="groupplatformlist" placeholder="Platform type">
@@ -77,11 +80,12 @@
 
           <div class="mt-4 ">
             <div class="row ">
-              {{# each groups }} 
+              {{# each products }} <!--groups-->
               {{# each this }}
               <div class="col-md-4 my-3 ">
                 <div class="card p-3 ">
                   <div class="d-flex justify-content-between" data-toggle="modal" data-target="#jobModal">
+                    {{!-- <img src="/images/lyft.svg " alt=" "> --}}
                     <img src="/images/brands/{{this.groupplatform}}.svg " alt=" " width="50px" height="50px">
                     <span class="font-weight-bold ">{{ this.groupname }}</span>
                       <a class="text-muted" id="btn_{{@index}}" data-toggle="modal" data-target="#myModal{{@index}}" href="/"><i class="fas fa-bars"></i></a>
@@ -130,9 +134,8 @@
               <a href="/popular-searches/Telegram"><img src="images/brands/Telegram.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
               <a href="/popular-searches/Imgur"><img src="images/brands/Imgur.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
               <a href="/popular-searches/Nairland"><img src="images/brands/Nairaland.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
-              <a href="/popular-searches/Facebook-messenger"><img src="images/brands/Facebook-messenger.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
-              <a href="/popular-searches/Discord"><img src="images/brands/Discord.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
-               <a href="/popular-searches/Instgram"><img src="images/brands/Instagram.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
+              <a href="/popular-searches/facebook-messenger"><img src="images/brands/Facebook-messenger.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
+              <a href="/popular-searches/facebook-messenger"><img src="images/brands/Discord.svg" class="img-responsive img-rounded mr-3 img-brands" alt="" /></a>
             </div>
           </div>
         </div>

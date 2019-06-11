@@ -14,6 +14,7 @@ var userSchema = new Schema({
 
 });
 
-userSchema.plugin(mongoosePaginate);
 module.exports = mongoose.model('Groups', userSchema);
+
+//module.exports = mongoose.model('Groups', userSchema, "userSchema");
 

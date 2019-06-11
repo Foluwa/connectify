@@ -15,97 +15,71 @@ mongoose.connect('mongodb://foluwa:foluwa2018@ds151814.mlab.com:51814/connectify
 var hostels = [ 
 //CHANGE GROUP TYPE TO GROUP TAGS
 
-//DATA INSERTED
- 
-    // new Groups({
-    //     useremail: 'moronfoluwaakintola@gmail.com',
-    //     groupname: 'Jamstack',
-    //     groupurl : 'https://gitter.im/jamstack/community',
-    //     groupinfo:'A place to discuss all things JAMstack. Ask questions, make connections, start meet up groups, and spread the JAM!' ,
-    //     grouptype :'[community,Javascript,Developers,]' ,
-    //     groupplatform: 'Gitter' 
-    // }), 
-    // new Groups({
-    //     useremail: 'moronfoluwaakintola@gmail.com',
-    //     groupname: 'JavaScripters',
-    //     groupurl : 'https://chat.whatsapp.com/JCIr3zpcbeT7NLbjOf4nmb',
-    //     groupinfo:'JavaScripters is a group where members share ideas, solve questions, conduct tutorials/workshops and inspire one another towards the common goal of developing themselves and becoming an outstanding developer in the IT World.' ,
-    //     grouptype :'[Javascript,Community,Programming,Whatsapp]' ,
-    //     groupplatform: 'Whatsapp' 
-    // }), 
-    // new Groups({
-    //     useremail: 'moronfoluwaakintola@gmail.com',
-    //     groupname: 'IBM DIGITAL - NATION AFRICA',
-    //     groupurl : 'https://www.facebook.com/groups/455667194845677',
-    //     groupinfo:'Our mission is to empower African youth with digital skills and tools to help improve their lives and provide access to a wider range of opportunities.' ,
-    //     grouptype :'[Community,Programming,Self Development,Education,Artificial Intelligence,Facebook]',
-    //     groupplatform: 'Facebook' 
-    // }), 
-    // new Groups({
-    //     useremail: 'moronfoluwaakintola@gmail.com',
-    //     groupname: 'Vue Land',
-    //     groupurl : 'https://discordapp.com/invite/HBherRA',
-    //     groupinfo:'This will be a community-driven server so feel free to suggest new text channels, better server names, nice logos, or anything else you think would improve it for everyone. Roles are being created for mods, trusted users, etc. As with all communities, we have a few rules to keep things friendly.' ,
-    //     grouptype :'[Community,Coding,Vue,Javascript,Jobs,Web]' ,
-    //     groupplatform: 'Discord' 
-    // }), 
-    // new Groups({
-    //     useremail: 'moronfoluwaakintola@gmail.com',
-    //     groupname: 'Bcoin',
-    //     groupurl : 'http://bcoin.io/slack-signup.html',
-    //     groupinfo:'Bcoin is an alternative implementation of the bitcoin protocol, written in node.js.Join us on the bcoin development Slack!' ,
-    //     grouptype :'Slack' ,
-    //     groupplatform: '[Bitcoin,Wallet,Cryptocurrency,Mining,Javascript]' 
-    // }), 
-    // new Groups({
-    //     useremail: '',
-    //     groupname: '',
-    //     groupurl : '',
-    //     groupinfo:'' ,
-    //     grouptype :'' ,
-    //     groupplatform: '' 
-    // }), 
-    // new Groups({
-    //     useremail: '',
-    //     groupname: '',
-    //     groupurl : '',
-    //     groupinfo:'' ,
-    //     grouptype :'' ,
-    //     groupplatform: '' 
-    // }), 
-    // new Groups({
-    //     useremail: '',
-    //     groupname: '',
-    //     groupurl : '',
-    //     groupinfo:'' ,
-    //     grouptype :'' ,
-    //     groupplatform: '' 
-    // }), 
-    // new Groups({
-    //     useremail: '',
-    //     groupname: '',
-    //     groupurl : '',
-    //     groupinfo:'' ,
-    //     grouptype :'' ,
-    //     groupplatform: '' 
-    // }), 
-    // new Groups({
-    //     useremail: '',
-    //     groupname: '',
-    //     groupurl : '',
-    //     groupinfo:'' ,
-    //     grouptype :'' ,
-    //     groupplatform: '' 
-    // }), 
-    // new Groups({
-    //     useremail: '',
-    //     groupname: '',
-    //     groupurl : '',
-    //     groupinfo:'' ,
-    //     grouptype :'' ,
-    //     groupplatform: '' 
-    // })
-
+    new Groups({
+        useremail: 'moronfoluwaakintola@gmail.com',
+        groupname: '',
+        groupurl : '',
+        groupinfo:'' ,
+        grouptype :'' ,
+        groupplatform: '' 
+    }),
+    new Groups({
+        useremail: 'moronfoluwaakintola@gmail.com',
+        groupname: '',
+        groupurl : '',
+        groupinfo:'' ,
+        grouptype :'' ,
+        groupplatform: '' 
+    }),
+    new Groups({
+        useremail: 'moronfoluwaakintola@gmail.com',
+        groupname: 'Codingcoach Facebook',
+        groupurl : 'https://www.facebook.com/codingcoachio/',
+        groupinfo:'Coding Coach is a free, open-source platform which aims to connect software developers and mentors all over the world. It is built by a group of talented and passionate developers, designers, engineers, and humans who want to make the engineering world a better place to collaborate. This project was born out of a desire to provide a platform to connect mentors and mentees throughout the world at no cost. Coding Coach is created by the people, for the people.' ,
+        grouptype :'[Programming, Mentorship]' ,
+        groupplatform: 'Facebook' 
+    }),
+    new Groups({
+        useremail: 'moronfoluwaakintola@gmail.com',
+        groupname: 'Codingcoach',
+        groupurl : 'https://join.slack.com/t/coding-coach/shared_invite/enQtNDYxNTcwMjk4MDcwLThiZjY1MTM2YTU1YzM2MGI1N2Y1NDI3ZGM1MGRhNjdiZjU0MzE1YjMxZjdlZmVlNDdhNmFhN2RhNGIxZmE1YTI',
+        groupinfo:'Coding Coach is a free, open-source platform which aims to connect software developers and mentors all over the world. It is built by a group of talented and passionate developers, designers, engineers, and humans who want to make the engineering world a better place to collaborate. This project was born out of a desire to provide a platform to connect mentors and mentees throughout the world at no cost. Coding Coach is created by the people, for the people.' ,
+        grouptype :'[Programming, Mentorship, Coding, Community, ]' ,
+        groupplatform: 'Slack' 
+    }),
+    new Groups({
+        useremail: 'moronfoluwaakintola@gmail.com',
+        groupname: 'DEFCON FORUM',
+        groupurl : 'https://forum.defcon.org/',
+        groupinfo:'DEF CON related announcements about web sites or services and things not directly related to any specific DEF CON convention.' ,
+        grouptype :'[Hacking, Security, Defcon, Convention]' ,
+        groupplatform: 'Defcon' 
+    }),
+    new Groups({
+        useremail: 'moronfoluwaakintola@gmail.com',
+        groupname: 'Business Casual',
+        groupurl : 'https://www.reddit.com/r/businesscasual',
+        groupinfo:'Welcome to the official subreddit for the YouTube channel Business Casual! Here you can discuss and share anything related to the channel, for example its latest videos or any suggestions you may have.' ,
+        grouptype :'[Business, Casual, Wealth,]' ,
+        groupplatform: 'Reddit' 
+    }),
+    new Groups({
+        useremail: 'moronfoluwaakintola@gmail.com',
+        groupname: 'Lets Flutter with Dart',
+        groupurl : 'https://m.facebook.com/groups/425920117856409',
+        groupinfo:'Welcome to the Lets flutter & dart group. This group is for all the devs who want to learn or explore flutter. People here can ask for help or also can help others. Thanks, Keep Fluttering !!!' ,
+        grouptype :'[Programming, Dart, Flutter, Mobile App Development]' ,
+        groupplatform: 'Facebook' 
+    }),
+    new Groups({
+        useremail: 'moronfoluwaakintola@gmail.com',
+        groupname: 'Redit Nigeria',
+        groupurl : 'https://www.reddit.com/r/nigeria',
+        groupinfo:'This sub is about Nigeria (Nigerian life, geopolitics, sports, culture and history), and about Nigerians in the diaspora. It is also a light-hearted sub in the usual Naija fashion. Everyone is welcome to contribute. Please subscribe so we can continue to grow as a community.' ,
+        grouptype :'[Nigeria, African]' ,
+        groupplatform: 'Reddit' 
+    }),
+    
 ];
 
 var done = 0;

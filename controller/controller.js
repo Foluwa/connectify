@@ -2,13 +2,13 @@ const express = require('express');
 var Groups = require('../models/group');
 var Subscribers = require('../models/subscribers');
 
-
+ 
 //USER DASHBOARD
 exports.dashboard = (req,res,next) => {
 			var successMsg = req.flash('success')[0];
 			console.log("dashboard page");
-			var user = req.user.email;
-			var name = req.user.name;
+			var user = req.user.email  || "";
+			var name = req.user.name  || "";
 			console.log(user + ' and ' + name);
 			var productChunks = [];
 			
